@@ -1,0 +1,11 @@
+{
+    "name": "proteusthemes/visual-composer-elements",
+    "description": "Composer package with Visual Composer elements mapped to widgets from ProteusWidgets composer package",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Gregor Capuder",
+            "email": "gregor.capuder@proteusnet.com"
+        }
+    ]
+}

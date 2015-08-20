@@ -1,2 +1,2 @@
-# visual-composer-elements
-Composer package with Visual Composer elements mapped to ProteusWidgets composer package
+# Visual Composer Elements
+Composer package with Visual Composer elements mapped to widgets from ProteusWidgets composer package
