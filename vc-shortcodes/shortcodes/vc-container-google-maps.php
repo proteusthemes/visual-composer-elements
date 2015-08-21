@@ -22,7 +22,7 @@ if ( ! class_exists( 'PT_VC_Container_Google_Map' ) ) {
 				'lat_long' => '51.5862682,-0.3009941',
 				'zoom'     => 7,
 				'type'     => 'roadmap',
-				'style'    => 'CargoPress',
+				'style'    => apply_filters( 'vc_pt/current_theme_google_map_style' , 'CargoPress' ),
 				'height'   => 380,
 				), $atts );
 
@@ -84,7 +84,7 @@ if ( ! class_exists( 'PT_VC_Container_Google_Map' ) ) {
 						'heading'     => _x( 'Style', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'style',
 						'value'       => array(
-							'CargoPress',
+							apply_filters( 'vc_pt/current_theme_google_map_style' , 'CargoPress' ),
 							'Default',
 							'Subtle Grayscale',
 							'Pale Dawn',
