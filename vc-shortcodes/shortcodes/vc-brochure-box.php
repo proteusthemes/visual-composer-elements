@@ -41,36 +41,36 @@ if ( ! class_exists( 'PT_VC_Brochure_Box' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'     => __( 'Brochure Box', 'cargopress-pt' ),
+				'name'     => _x( 'Brochure Box', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Content', 'cargopress-pt' ),
+				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'params'   => array(
 					array(
 						'type'       => 'textfield',
 						'holder'     => 'div',
-						'heading'    => __( 'Title', 'cargopress-pt' ),
+						'heading'    => _x( 'Title', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'title',
 					),
 					array(
 						'type'       => 'upload_file',
-						'heading'    => __( 'Brochure URL', 'cargopress-pt' ),
+						'heading'    => _x( 'Brochure URL', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'url',
 					),
 					array(
 						'type'       => 'checkbox',
-						'heading'    => __( 'Open link in new tab', 'cargopress-pt' ),
+						'heading'    => _x( 'Open link in new tab', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'new_tab',
 					),
 					array(
 						'type'       => 'textfield',
 						'holder'     => 'div',
-						'heading'    => __( 'Brochure Text', 'cargopress-pt' ),
+						'heading'    => _x( 'Brochure Text', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'text',
 					),
 					array(
 						'type'       => 'select_fa_icon_bb',
-						'heading'    => __( 'Brochure Icon', 'cargopress-pt' ),
+						'heading'    => _x( 'Brochure Icon', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'icon',
 						'value'      => 'fa-file-text-o',
 					),

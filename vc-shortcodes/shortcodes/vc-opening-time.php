@@ -18,10 +18,10 @@ if ( ! class_exists( 'PT_VC_Opening_Time' ) ) {
 		// Overwrite the register_shortcode function from the parent class
 		public function register_shortcode( $atts, $content = null ) {
 			$atts = shortcode_atts( array(
-				'title'      => __( 'Opening time', 'cargopress-pt' ),
+				'title'      => __( 'Opening time', 'vc-elements-pt' ),
 				'days_hours' => 'opened|8:00|16:00,opened|11:00|19:00,opened|8:00|16:00,closed,opened|11:00|19:00,closed,closed',
 				'separator'  => ' - ',
-				'closed'     => __( 'CLOSED', 'cargopress-pt' ),
+				'closed'     => __( 'CLOSED', 'vc-elements-pt' ),
 				'text_below' => '',
 				), $atts );
 
@@ -51,41 +51,41 @@ if ( ! class_exists( 'PT_VC_Opening_Time' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'     => __( 'Opening Time', 'cargopress-pt' ),
+				'name'     => _x( 'Opening Time', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Content', 'cargopress-pt' ),
+				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'params'   => array(
 					array(
 						'type'       => 'textfield',
 						'holder'     => 'div',
-						'heading'    => __( 'Title', 'cargopress-pt' ),
+						'heading'    => _x( 'Title', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'title',
-						'value'      => __( 'Opening Time', 'cargopress-pt' ),
+						'value'      => _x( 'Opening Time', 'backend', 'vc-elements-pt' ),
 					),
 					array(
 						'type'        => 'lined_textarea',
-						'heading'     => __( 'Days and Hours', 'cargopress-pt' ),
-						'description' => __( 'Enter values for opening times - <em>opened</em> or <em>closed</em>|<em>opening time</em>|<em>closing time</em>. Divide value sets with linebreak "Enter" (Example: opened|8:00|16:00).', 'cargopress-pt' ),
+						'heading'     => _x( 'Days and Hours', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Enter values for opening times - <em>opened</em> or <em>closed</em>|<em>opening time</em>|<em>closing time</em>. Divide value sets with linebreak "Enter" (Example: opened|8:00|16:00).', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'days_hours',
 						'rows'        => '7',
 						'value'       => 'opened|8:00|16:00,opened|11:00|19:00,opened|8:00|16:00,closed,opened|11:00|19:00,closed,closed',
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Separator between hours', 'cargopress-pt' ),
+						'heading'     => _x( 'Separator between hours', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'separator',
 						'value'       => ' - ',
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Text used for closed days', 'cargopress-pt' ),
+						'heading'     => _x( 'Text used for closed days', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'closed',
-						'value'       => __( 'CLOSED', 'cargopress-pt' ),
+						'value'       => _x( 'CLOSED', 'backend', 'vc-elements-pt' ),
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Text below the timetable for additional info (for example lunch time)', 'cargopress-pt' ),
+						'heading'     => _x( 'Text below the timetable for additional info (for example lunch time)', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'text_below',
 					),
 				)

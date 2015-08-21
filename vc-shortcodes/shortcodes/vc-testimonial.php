@@ -34,25 +34,25 @@ if ( ! class_exists( 'PT_VC_Testimonial' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'     => __( 'Testimonial', 'cargopress-pt' ),
+				'name'     => _x( 'Testimonial', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Content', 'cargopress-pt' ),
+				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'as_child' => array( 'only' => 'pt_vc_container_testimonials' ),
 				'params'   => array(
 					array(
 						'type'        => 'textarea',
-						'heading'     => __( 'Quote', 'cargopress-pt' ),
+						'heading'     => _x( 'Quote', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'quote',
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Author', 'cargopress-pt' ),
+						'heading'     => _x( 'Author', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'author',
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Author Description', 'cargopress-pt' ),
+						'heading'     => _x( 'Author Description', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'author_description',
 					),
 				)

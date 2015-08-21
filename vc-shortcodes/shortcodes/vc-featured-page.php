@@ -20,7 +20,7 @@ if ( ! class_exists( 'PT_VC_Featured_Page' ) ) {
 			$atts = shortcode_atts( array(
 				'page'           => '',
 				'layout'         => 'block',
-				'read_more_text' => __( 'Read more', 'cargopress-pt' ),
+				'read_more_text' => __( 'Read more', 'vc-elements-pt' ),
 				), $atts );
 
 			$instance = array(
@@ -54,31 +54,31 @@ if ( ! class_exists( 'PT_VC_Featured_Page' ) ) {
 			}
 
 			vc_map( array(
-				'name'     => __( 'Featured Page', 'cargopress-pt' ),
+				'name'     => _x( 'Featured Page', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Content', 'cargopress-pt' ),
+				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'params'   => array(
 					array(
 						'type'       => 'dropdown',
-						'heading'    => __( 'Page', 'cargopress-pt' ),
+						'heading'    => _x( 'Page', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'page',
 						'value'      => $list_of_pages,
 					),
 					array(
 						'type'       => 'dropdown',
-						'heading'    => __( 'Layout', 'cargopress-pt' ),
+						'heading'    => _x( 'Layout', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'layout',
 						'value'      => array(
-							__( 'With big picture', 'cargopress-pt' ) => 'block',
-							__( 'With small picture, inline', 'cargopress-pt' ) => 'inline',
+							_x( 'With big picture', 'backend', 'vc-elements-pt' ) => 'block',
+							_x( 'With small picture, inline', 'backend', 'vc-elements-pt' ) => 'inline',
 						),
 					),
 					array(
 						'type'       => 'textfield',
-						'heading'    => __( 'Read more text', 'cargopress-pt' ),
+						'heading'    => _x( 'Read more text', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'read_more_text',
-						'value' => __( 'Read more', 'cargopress-pt' ),
+						'value' => _x( 'Read more', 'backend', 'vc-elements-pt' ),
 					),
 				)
 			) );

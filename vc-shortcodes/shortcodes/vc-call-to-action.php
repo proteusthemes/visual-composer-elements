@@ -34,23 +34,23 @@ if ( ! class_exists( 'PT_VC_Call_To_Action' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'     => __( 'Call to Action', 'cargopress-pt' ),
+				'name'     => _x( 'Call to Action', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Content', 'cargopress-pt' ),
+				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'params'   => array(
 					array(
 						'type'       => 'textfield',
 						'holder'     => 'div',
-						'heading'    => __( 'Title', 'cargopress-pt' ),
+						'heading'    => _x( 'Title', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'title',
 					),
 					array(
 						'type'        => 'textarea_html',
 						'class'       => '',
-						'heading'     => __( 'Button Area', 'cargopress-pt' ),
+						'heading'     => _x( 'Button Area', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'content',
-						'description' => __( 'For adding buttons you must use button shortcode which look like this: [button]Text[/button]. Please take a look at the documentation for more details.', 'cargopress-pt' ),
+						'description' => _x( 'For adding buttons you must use button shortcode which look like this: [button]Text[/button]. Please take a look at the documentation for more details.', 'backend', 'vc-elements-pt' ),
 					),
 				)
 			) );

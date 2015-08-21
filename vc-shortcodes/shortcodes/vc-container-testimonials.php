@@ -19,7 +19,7 @@ if ( ! class_exists( 'PT_VC_Container_Testimonials' ) ) {
 		// Overwrite the register_shortcode function from the parent class
 		public function register_shortcode( $atts, $content = null ) {
 			$atts = shortcode_atts( array(
-				'title'     => __( 'Testimonials', 'cargopress-pt' ),
+				'title'     => __( 'Testimonials', 'vc-elements-pt' ),
 				'autocycle' => 'no',
 				'interval'  => '5000',
 				), $atts );
@@ -46,9 +46,9 @@ if ( ! class_exists( 'PT_VC_Container_Testimonials' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'            => __( 'Testimonials', 'cargopress-pt' ),
+				'name'            => _x( 'Testimonials', 'backend', 'vc-elements-pt' ),
 				'base'            => $this->shortcode_name(),
-				'category'        => __( 'Content', 'cargopress-pt' ),
+				'category'        => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'            => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'as_parent'       => array( 'only' => 'pt_vc_testimonial' ),
 				'content_element' => true,
@@ -56,23 +56,23 @@ if ( ! class_exists( 'PT_VC_Container_Testimonials' ) ) {
 				'params'          => array(
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Title', 'cargopress-pt' ),
+						'heading'     => _x( 'Title', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'title',
-						'value'       => __( 'Testimonials', 'cargopress-pt' ),
+						'value'       => _x( 'Testimonials', 'backend', 'vc-elements-pt' ),
 					),
 					array(
 						'type'        => 'dropdown',
-						'heading'     => __( 'Automatically cycle the carousel?', 'cargopress-pt' ),
+						'heading'     => _x( 'Automatically cycle the carousel?', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'autocycle',
 						'value'       => array(
-							__( 'No', 'cargopress-pt' )  => 'no',
-							__( 'Yes', 'cargopress-pt' ) => 'yes',
+							_x( 'No', 'backend', 'vc-elements-pt' )  => 'no',
+							_x( 'Yes', 'backend', 'vc-elements-pt' ) => 'yes',
 						),
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Interval', 'cargopress-pt' ),
-						'description' => __( 'Input time (number) in milliseconds.', 'proteuswidgets' ),
+						'heading'     => _x( 'Interval', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Input time (number) in milliseconds.', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'interval',
 						'value'       => '5000',
 						'dependency'  => array(

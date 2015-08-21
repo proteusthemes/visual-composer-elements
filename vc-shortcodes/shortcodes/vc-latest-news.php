@@ -59,25 +59,25 @@ if ( ! class_exists( 'PT_VC_Latest_News' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'     => __( 'Latest News', 'cargopress-pt' ),
+				'name'     => _x( 'Latest News', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Content', 'cargopress-pt' ),
+				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'params'   => array(
 					array(
 						'type'       => 'dropdown',
 						'holder'     => 'div',
-						'heading'    => __( 'Display type', 'cargopress-pt' ),
+						'heading'    => _x( 'Display type', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'layout',
 						'value'      => array(
-							__( 'Box (one post)', 'cargopress-pt' )          => 'block',
-							__( 'Inline (multiple posts)', 'cargopress-pt' ) => 'inline',
+							_x( 'Box (one post)', 'backend', 'vc-elements-pt' )          => 'block',
+							_x( 'Inline (multiple posts)', 'backend', 'vc-elements-pt' ) => 'inline',
 						),
 					),
 					array(
 						'type'        => 'input_number',
-						'heading'     => __( 'Post order number', 'cargopress-pt' ),
-						'description' => __( 'Input a number. Min: 1, Max: 10', 'cargopress-pt' ),
+						'heading'     => _x( 'Post order number', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Input a number. Min: 1, Max: 10', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'order_number',
 						'min'         => 1,
 						'max'         => $this->max_post_number,
@@ -89,8 +89,8 @@ if ( ! class_exists( 'PT_VC_Latest_News' ) ) {
 					),
 					array(
 						'type'        => 'input_number',
-						'heading'     => __( 'Post order number for the start of the interval', 'cargopress-pt' ),
-						'description' => __( 'Input a number. Min: 1, Max: 10', 'cargopress-pt' ),
+						'heading'     => _x( 'Post order number for the start of the interval', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Input a number. Min: 1, Max: 10', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'order_number_from',
 						'min'         => 1,
 						'max'         => $this->max_post_number,
@@ -102,8 +102,8 @@ if ( ! class_exists( 'PT_VC_Latest_News' ) ) {
 					),
 					array(
 						'type'        => 'input_number',
-						'heading'     => __( 'Post order number for the end of the interval', 'cargopress-pt' ),
-						'description' => __( 'Input a number. Min: 1, Max: 10', 'cargopress-pt' ),
+						'heading'     => _x( 'Post order number for the end of the interval', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Input a number. Min: 1, Max: 10', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'order_number_to',
 						'min'         => 1,
 						'max'         => $this->max_post_number,
@@ -115,7 +115,7 @@ if ( ! class_exists( 'PT_VC_Latest_News' ) ) {
 					),
 					array(
 						'type'       => 'checkbox',
-						'heading'    => __( 'Show more news link', 'cargopress-pt' ),
+						'heading'    => _x( 'Show more news link', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'show_more_link',
 					),
 				)

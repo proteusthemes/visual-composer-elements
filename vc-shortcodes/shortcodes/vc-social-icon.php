@@ -34,23 +34,23 @@ if ( ! class_exists( 'PT_VC_Social_Icon' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'     => __( 'Social Icon', 'cargopress-pt' ),
+				'name'     => _x( 'Social Icon', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Content', 'cargopress-pt' ),
+				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'as_child' => array( 'only' => 'pt_vc_container_social_icons' ),
 				'params'   => array(
 					array(
 						'type'       => 'textfield',
-						'heading'    => __( 'Link', 'cargopress-pt' ),
+						'heading'    => _x( 'Link', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'link',
 					),
 					array(
 						'type'        => 'iconpicker',
-						'heading'     => __( 'Icon', 'cargopress-pt' ),
+						'heading'     => _x( 'Icon', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'icon',
 						'value'       => 'fa fa-facebook',
-						'description' => __( 'Select icon from library.', 'cargopress-pt' ),
+						'description' => _x( 'Select icon from library.', 'backend', 'vc-elements-pt' ),
 						'settings'    => array(
 							'emptyIcon'    => false,
 							'iconsPerPage' => 50,

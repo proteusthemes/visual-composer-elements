@@ -60,39 +60,39 @@ if ( ! class_exists( 'PT_VC_Facebook' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'     => __( 'Facebook Box', 'cargopress-pt' ),
+				'name'     => _x( 'Facebook Box', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Social', 'cargopress-pt' ),
+				'category' => _x( 'Social', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'params'   => array(
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Title', 'cargopress-pt' ),
+						'heading'     => _x( 'Title', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'title',
 						'value'       => 'Facebook',
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'FB Page to like', 'cargopress-pt' ),
-						'description' => __( 'Input the whole FB page url. Example: https://www.facebook.com/ProteusThemes', 'cargopress-pt' ),
+						'heading'     => _x( 'FB Page to like', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Input the whole FB page url. Example: https://www.facebook.com/ProteusThemes', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'fb_page_url',
 						'value'       => 'https://www.facebook.com/ProteusThemes',
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Width', 'cargopress-pt' ),
-						'description' => __( 'Input width in pixels. Min: 180, Max: 500', 'cargopress-pt' ),
+						'heading'     => _x( 'Width', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Input width in pixels. Min: 180, Max: 500', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'width',
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Height', 'cargopress-pt' ),
-						'description' => __( 'Input height in pixels. Min: 70', 'cargopress-pt' ),
+						'heading'     => _x( 'Height', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Input height in pixels. Min: 70', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'height',
 					),
 					array(
 						'type'        => 'checkbox',
-						'heading'     => __( 'Options', 'cargopress-pt' ),
+						'heading'     => _x( 'Options', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'checkbox_options',
 						'value'       => array(
 							'Hide Cover Photo'     => 'hide_cover',

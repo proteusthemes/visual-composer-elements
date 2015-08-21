@@ -45,9 +45,9 @@ if ( ! class_exists( 'PT_VC_Container_Google_Map' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'            => __( 'Google Map', 'cargopress-pt' ),
+				'name'            => _x( 'Google Map', 'backend', 'vc-elements-pt' ),
 				'base'            => $this->shortcode_name(),
-				'category'        => __( 'Content', 'cargopress-pt' ),
+				'category'        => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'            => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'as_parent'       => array( 'only' => 'pt_vc_location' ),
 				'content_element' => true,
@@ -55,33 +55,33 @@ if ( ! class_exists( 'PT_VC_Container_Google_Map' ) ) {
 				'params'          => array(
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Latitude and longitude of the map center', 'cargopress-pt' ),
-						'description' => sprintf( __( 'Get this from %s (right click on map and select What\'s here?) or %s. Latitude and longitude separated by comma.', 'proteuswidgets' ), '<a href="https://maps.google.com/" target="_blank">Google Maps</a>', '<a href="http://www.findlatitudeandlongitude.com/" target="_blank">this site</a>' ),
+						'heading'     => _x( 'Latitude and longitude of the map center', 'backend', 'vc-elements-pt' ),
+						'description' => sprintf( _x( 'Get this from %s (right click on map and select What\'s here?) or %s. Latitude and longitude separated by comma.', 'proteuswidgets' ), '<a href="https://maps.google.com/" target="_blank">Google Maps</a>', '<a href="http://www.findlatitudeandlongitude.com/" target="_blank">this site</a>' ),
 						'param_name'  => 'lat_long',
 						'value'       => '51.5862682,-0.3009941',
 					),
 					array(
 						'type'        => 'dropdown',
-						'heading'     => __( 'Zoom of the map', 'cargopress-pt' ),
-						'description' => __( 'Higher number means closer view', 'cargopress-pt' ),
+						'heading'     => _x( 'Zoom of the map', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Higher number means closer view', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'zoom',
 						'value'       => range( 1, 24 ),
 						'std'         => 7,
 					),
 					array(
 						'type'        => 'dropdown',
-						'heading'     => __( 'Type', 'cargopress-pt' ),
+						'heading'     => _x( 'Type', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'type',
 						'value'       => array(
-							__( 'Roadmap', 'cargopress-pt' )   => 'roadmap',
-							__( 'Satellite', 'cargopress-pt' ) => 'satellite',
-							__( 'Hybrid', 'cargopress-pt' )    => 'hybrid',
-							__( 'Terrain', 'cargopress-pt' )   => 'terrain',
+							_x( 'Roadmap', 'backend', 'vc-elements-pt' )   => 'roadmap',
+							_x( 'Satellite', 'backend', 'vc-elements-pt' ) => 'satellite',
+							_x( 'Hybrid', 'backend', 'vc-elements-pt' )    => 'hybrid',
+							_x( 'Terrain', 'backend', 'vc-elements-pt' )   => 'terrain',
 						),
 					),
 					array(
 						'type'        => 'dropdown',
-						'heading'     => __( 'Style', 'cargopress-pt' ),
+						'heading'     => _x( 'Style', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'style',
 						'value'       => array(
 							'CargoPress',
@@ -94,8 +94,8 @@ if ( ! class_exists( 'PT_VC_Container_Google_Map' ) ) {
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Height of the map', 'cargopress-pt' ),
-						'description' => __( 'Input height in pixels', 'cargopress-pt' ),
+						'heading'     => _x( 'Height of the map', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Input height in pixels', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'height',
 						'value'       => 380,
 					),

@@ -37,9 +37,9 @@ if ( ! class_exists( 'PT_VC_Container_Number_Counter' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'            => __( 'Number Counter', 'cargopress-pt' ),
+				'name'            => _x( 'Number Counter', 'backend', 'vc-elements-pt' ),
 				'base'            => $this->shortcode_name(),
-				'category'        => __( 'Content', 'cargopress-pt' ),
+				'category'        => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'            => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'as_parent'       => array( 'only' => 'pt_vc_counter' ),
 				'content_element' => true,
@@ -47,8 +47,8 @@ if ( ! class_exists( 'PT_VC_Container_Number_Counter' ) ) {
 				'params'          => array(
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Counting time', 'cargopress-pt' ),
-						'description' => __( 'Input time (number) in milliseconds.', 'proteuswidgets' ),
+						'heading'     => _x( 'Counting time', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Input time (number) in milliseconds.', 'proteuswidgets' ),
 						'param_name'  => 'speed',
 						'value'       => '1000',
 					),

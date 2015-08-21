@@ -37,9 +37,9 @@ if ( ! class_exists( 'PT_VC_Container_Social_Icons' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'                    => __( 'Social Icons', 'cargopress-pt' ),
+				'name'                    => _x( 'Social Icons', 'backend', 'vc-elements-pt' ),
 				'base'                    => $this->shortcode_name(),
-				'category'                => __( 'Content', 'cargopress-pt' ),
+				'category'                => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'                    => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'as_parent'               => array( 'only' => 'pt_vc_social_icon' ),
 				'content_element'         => true,
@@ -47,7 +47,7 @@ if ( ! class_exists( 'PT_VC_Container_Social_Icons' ) ) {
 				'params'                  => array(
 					array(
 						'type'       => 'checkbox',
-						'heading'    => __( 'Open link in new tab', 'cargopress-pt' ),
+						'heading'    => _x( 'Open link in new tab', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'new_tab',
 					),
 				)

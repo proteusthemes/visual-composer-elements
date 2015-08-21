@@ -44,39 +44,39 @@ if ( ! class_exists( 'PT_VC_Icon_Box' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'     => __( 'Icon Box', 'cargopress-pt' ),
+				'name'     => _x( 'Icon Box', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Content', 'cargopress-pt' ),
+				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'params'   => array(
 					array(
 						'type'       => 'textfield',
 						'holder'     => 'div',
-						'heading'    => __( 'Title', 'cargopress-pt' ),
+						'heading'    => _x( 'Title', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'title',
 					),
 					array(
 						'type'       => 'textfield',
-						'heading'    => __( 'Text', 'cargopress-pt' ),
+						'heading'    => _x( 'Text', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'text',
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Link', 'cargopress-pt' ),
-						'description' => __( 'URL to any page, optional.', 'cargopress-pt' ),
+						'heading'     => _x( 'Link', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'URL to any page, optional.', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'link',
 					),
 					array(
 						'type'       => 'checkbox',
-						'heading'    => __( 'Open link in new tab', 'cargopress-pt' ),
+						'heading'    => _x( 'Open link in new tab', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'new_tab',
 					),
 					array(
 						'type'        => 'iconpicker',
-						'heading'     => __( 'Icon', 'cargopress-pt' ),
+						'heading'     => _x( 'Icon', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'icon',
 						'value'       => 'fa fa-home',
-						'description' => __( 'Select icon from library.', 'cargopress-pt' ),
+						'description' => _x( 'Select icon from library.', 'backend', 'vc-elements-pt' ),
 						'settings'    => array(
 							'emptyIcon'    => false, // default true, display an "EMPTY" icon?
 							'iconsPerPage' => 100, // default 100, how many icons per/page to display

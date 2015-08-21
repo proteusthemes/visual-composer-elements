@@ -18,7 +18,7 @@ if ( ! class_exists( 'PT_VC_Skype' ) ) {
 		// Overwrite the register_shortcode function from the parent class
 		public function register_shortcode( $atts, $content = null ) {
 			$atts = shortcode_atts( array(
-				'title'    => __( 'Skype Call', 'cargopress-pt' ),
+				'title'    => _x( 'Skype Call', 'backend', 'vc-elements-pt' ),
 				'username' => 'skype:echo1234',
 				), $atts );
 
@@ -35,22 +35,22 @@ if ( ! class_exists( 'PT_VC_Skype' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'     => __( 'Skype', 'cargopress-pt' ),
+				'name'     => _x( 'Skype', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Content', 'cargopress-pt' ),
+				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'params'   => array(
 					array(
 						'type'       => 'textfield',
 						'holder'     => 'div',
-						'heading'    => __( 'Title', 'cargopress-pt' ),
+						'heading'    => _x( 'Title', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'title',
-						'value'      => __( 'Skype Call', 'cargopress-pt' ),
+						'value'      => _x( 'Skype Call', 'backend', 'vc-elements-pt' ),
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Skype username', 'cargopress-pt' ),
-						'description' => __( 'Example: <code>skype:your_skype_username_goes_here</code> or <code>tel:your_phone_number</code>, if you want it to call your phone.', 'cargopress-pt' ),
+						'heading'     => _x( 'Skype username', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Example: <code>skype:your_skype_username_goes_here</code> or <code>tel:your_phone_number</code>, if you want it to call your phone.', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'username',
 						'value'       => 'skype:echo1234',
 					),

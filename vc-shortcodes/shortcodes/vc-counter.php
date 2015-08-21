@@ -19,7 +19,7 @@ if ( ! class_exists( 'PT_VC_Counter' ) ) {
 		// Overwrite the register_shortcode function from the parent class
 		public function register_shortcode( $atts, $content = null ) {
 			$atts = shortcode_atts( array(
-				'title'  => __( 'Test Title', 'cargopress-pt' ),
+				'title'  => __( 'Test Title', 'backend', 'vc-elements-pt' ),
 				'number' => '299',
 				'icon'   => 'fa fa-home',
 				), $atts );
@@ -33,30 +33,30 @@ if ( ! class_exists( 'PT_VC_Counter' ) ) {
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
 			vc_map( array(
-				'name'     => __( 'Counter', 'cargopress-pt' ),
+				'name'     => _x( 'Counter', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
-				'category' => __( 'Content', 'cargopress-pt' ),
+				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'as_child' => array( 'only' => 'pt_vc_container_number_counter' ),
 				'params'   => array(
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Title', 'cargopress-pt' ),
+						'heading'     => _x( 'Title', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'title',
 					),
 					array(
 						'type'        => 'textfield',
-						'heading'     => __( 'Number', 'cargopress-pt' ),
-						'description' => __( 'Input a positive number.', 'cargopress-pt' ),
+						'heading'     => _x( 'Number', 'backend', 'vc-elements-pt' ),
+						'description' => _x( 'Input a positive number.', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'number',
 						'min'         => '1',
 					),
 					array(
 						'type'        => 'iconpicker',
-						'heading'     => __( 'Icon', 'cargopress-pt' ),
+						'heading'     => _x( 'Icon', 'backend', 'vc-elements-pt' ),
 						'param_name'  => 'icon',
 						'value'       => 'fa fa-home',
-						'description' => __( 'Select icon from library.', 'cargopress-pt' ),
+						'description' => _x( 'Select icon from library.', 'backend', 'vc-elements-pt' ),
 						'settings'    => array(
 							'emptyIcon'    => false, // default true, display an "EMPTY" icon?
 							'iconsPerPage' => 100, // default 100, how many icons per/page to display
