@@ -8,6 +8,8 @@
 if ( ! class_exists( 'PT_VC_Testimonial' ) ) {
 	class PT_VC_Testimonial extends PT_VC_Shortcode {
 
+		private $fields;
+
 		// Basic shortcode settings
 		function shortcode_name() { return 'pt_vc_testimonial'; }
 
@@ -33,29 +35,41 @@ if ( ! class_exists( 'PT_VC_Testimonial' ) ) {
 
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
+
+			$this->fields = apply_filters( 'pw/testimonial_widget', array(
+				'rating' => true,
+				'author_description' => false,
+				'number_of_testimonial_per_slide' => 2,
+			) );
+
+			$params = array(
+				array(
+					'type'        => 'textarea',
+					'heading'     => _x( 'Quote', 'backend', 'vc-elements-pt' ),
+					'param_name'  => 'quote',
+				),
+				array(
+					'type'        => 'textfield',
+					'heading'     => _x( 'Author', 'backend', 'vc-elements-pt' ),
+					'param_name'  => 'author',
+				),
+			);
+
+			if ( $this->fields['author_description'] ) {
+				$params[] = array(
+					'type'        => 'textfield',
+					'heading'     => _x( 'Author Description', 'backend', 'vc-elements-pt' ),
+					'param_name'  => 'author_description',
+				);
+			}
+
 			vc_map( array(
 				'name'     => _x( 'Testimonial', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
 				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'as_child' => array( 'only' => 'pt_vc_container_testimonials' ),
-				'params'   => array(
-					array(
-						'type'        => 'textarea',
-						'heading'     => _x( 'Quote', 'backend', 'vc-elements-pt' ),
-						'param_name'  => 'quote',
-					),
-					array(
-						'type'        => 'textfield',
-						'heading'     => _x( 'Author', 'backend', 'vc-elements-pt' ),
-						'param_name'  => 'author',
-					),
-					array(
-						'type'        => 'textfield',
-						'heading'     => _x( 'Author Description', 'backend', 'vc-elements-pt' ),
-						'param_name'  => 'author_description',
-					),
-				)
+				'params'   => $params
 			) );
 		}
 	}
