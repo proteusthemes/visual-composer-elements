@@ -61,7 +61,6 @@ if ( ! class_exists( 'PT_VC_Opening_Time' ) ) {
 						'holder'     => 'div',
 						'heading'    => _x( 'Title', 'backend', 'vc-elements-pt' ),
 						'param_name' => 'title',
-						'value'      => _x( 'Opening Time', 'backend', 'vc-elements-pt' ),
 					),
 					array(
 						'type'        => 'lined_textarea',
