@@ -18,7 +18,7 @@ if ( ! class_exists( 'PT_VC_Opening_Time' ) ) {
 		// Overwrite the register_shortcode function from the parent class
 		public function register_shortcode( $atts, $content = null ) {
 			$atts = shortcode_atts( array(
-				'title'      => __( 'Opening time', 'vc-elements-pt' ),
+				'title'      => '',
 				'days_hours' => 'opened|8:00|16:00,opened|11:00|19:00,opened|8:00|16:00,closed,opened|11:00|19:00,closed,closed',
 				'separator'  => ' - ',
 				'closed'     => __( 'CLOSED', 'vc-elements-pt' ),
