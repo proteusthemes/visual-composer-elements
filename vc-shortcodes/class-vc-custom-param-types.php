@@ -96,7 +96,7 @@ if ( ! class_exists( 'PT_VC_Custom_Param_Types' ) ) {
 			ob_start();
 			?>
 
-			<textarea rows="<?php echo esc_attr( $settings['rows'] ); ?>" name="<?php echo esc_attr( $settings['param_name'] ); ?>" class="wpb_vc_param_value wpb-textarea <?php echo esc_attr( $settings['param_name'] ) . ' ' . esc_attr( $settings['type'] ); ?>"><?php echo $value ?></textarea>
+			<textarea rows="<?php echo esc_attr( $settings['rows'] ); ?>" name="<?php echo esc_attr( $settings['param_name'] ); ?>" class="wpb_vc_param_value wpb-textarea <?php echo esc_attr( $settings['param_name'] ) . ' ' . esc_attr( $settings['type'] ); ?>"><?php echo esc_textarea( $value ); ?></textarea>
 
 			<?php
 			return ob_get_clean();
