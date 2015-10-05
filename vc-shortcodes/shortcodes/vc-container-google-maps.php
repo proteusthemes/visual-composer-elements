@@ -56,7 +56,7 @@ if ( ! class_exists( 'PT_VC_Container_Google_Map' ) ) {
 					array(
 						'type'        => 'textfield',
 						'heading'     => _x( 'Latitude and longitude of the map center', 'backend', 'vc-elements-pt' ),
-						'description' => sprintf( _x( 'Get this from %s (right click on map and select What\'s here?) or %s. Latitude and longitude separated by comma.', 'proteuswidgets' ), '<a href="https://maps.google.com/" target="_blank">Google Maps</a>', '<a href="http://www.findlatitudeandlongitude.com/" target="_blank">this site</a>' ),
+						'description' => sprintf( __( 'Get this from %s (right click on map and select What\'s here?) or %s. Latitude and longitude separated by comma.', 'proteuswidgets' ), '<a href="https://maps.google.com/" target="_blank">Google Maps</a>', '<a href="http://www.findlatitudeandlongitude.com/" target="_blank">this site</a>' ),
 						'param_name'  => 'lat_long',
 						'value'       => '51.5862682,-0.3009941',
 					),

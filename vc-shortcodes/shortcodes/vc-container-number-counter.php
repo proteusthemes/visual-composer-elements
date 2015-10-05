@@ -48,7 +48,7 @@ if ( ! class_exists( 'PT_VC_Container_Number_Counter' ) ) {
 					array(
 						'type'        => 'textfield',
 						'heading'     => _x( 'Counting time', 'backend', 'vc-elements-pt' ),
-						'description' => _x( 'Input time (number) in milliseconds.', 'proteuswidgets' ),
+						'description' => _x( 'Input time (number) in milliseconds.', 'backend', 'proteuswidgets' ),
 						'param_name'  => 'speed',
 						'value'       => '1000',
 					),
