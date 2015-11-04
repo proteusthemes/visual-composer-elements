@@ -24,10 +24,12 @@ if ( ! class_exists( 'PT_VC_Testimonial' ) ) {
 				'quote'              => '',
 				'author'             => '',
 				'author_description' => '',
+				'author_avatar'      => '',
 				), $atts );
 
 			// Remove all HTML tags from the testimonial text
 			$atts['quote'] = wp_strip_all_tags( $atts['quote'] );
+			$atts['author_avatar'] = wp_get_attachment_url( $atts['author_avatar'] );
 
 			// The PHP_EOL is added so that it can be used as a separator between multiple counters
 			return PHP_EOL . json_encode( $atts );
@@ -37,29 +39,39 @@ if ( ! class_exists( 'PT_VC_Testimonial' ) ) {
 		public function vc_map_shortcode() {
 
 			$this->fields = apply_filters( 'pw/testimonial_widget', array(
-				'rating' => true,
-				'author_description' => false,
+				'rating'                          => true,
+				'author_description'              => false,
+				'author_avatar'                   => false,
 				'number_of_testimonial_per_slide' => 2,
+				'bootstrap_version'               => 3,
 			) );
 
 			$params = array(
 				array(
-					'type'        => 'textarea',
-					'heading'     => _x( 'Quote', 'backend', 'vc-elements-pt' ),
-					'param_name'  => 'quote',
+					'type'       => 'textarea',
+					'heading'    => _x( 'Quote', 'backend', 'vc-elements-pt' ),
+					'param_name' => 'quote',
 				),
 				array(
-					'type'        => 'textfield',
-					'heading'     => _x( 'Author', 'backend', 'vc-elements-pt' ),
-					'param_name'  => 'author',
+					'type'       => 'textfield',
+					'heading'    => _x( 'Author', 'backend', 'vc-elements-pt' ),
+					'param_name' => 'author',
 				),
 			);
 
 			if ( $this->fields['author_description'] ) {
 				$params[] = array(
-					'type'        => 'textfield',
-					'heading'     => _x( 'Author Description', 'backend', 'vc-elements-pt' ),
-					'param_name'  => 'author_description',
+					'type'       => 'textfield',
+					'heading'    => _x( 'Author Description', 'backend', 'vc-elements-pt' ),
+					'param_name' => 'author_description',
+				);
+			}
+
+			if ( $this->fields['author_avatar'] ) {
+				$params[] = array(
+					'type'       => 'attach_image',
+					'heading'    => _x( 'Author Avatar', 'backend', 'vc-elements-pt' ),
+					'param_name' => 'author_avatar',
 				);
 			}
 
