@@ -1,4 +1,4 @@
-i<?php
+<?php
 
 /**
  * Call to Action content element for the Visual Composer editor
