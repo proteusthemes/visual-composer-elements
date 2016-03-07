@@ -7,6 +7,8 @@
 if ( ! class_exists( 'PT_VC_Featured_Page' ) ) {
 	class PT_VC_Featured_Page extends PT_VC_Shortcode {
 
+		private $fields;
+
 		// Basic shortcode settings
 		function shortcode_name() { return 'pt_vc_featured_page'; }
 
@@ -21,12 +23,14 @@ if ( ! class_exists( 'PT_VC_Featured_Page' ) ) {
 				'page'           => '',
 				'layout'         => 'block',
 				'read_more_text' => __( 'Read more', 'vc-elements-pt' ),
+				'tag'            => '',
 				), $atts );
 
 			$instance = array(
 				'page_id'        => absint( $atts['page'] ),
 				'layout'         => $atts['layout'],
 				'read_more_text' => $atts['read_more_text'],
+				'tag'            => $atts['tag'],
 			);
 
 			ob_start();
@@ -36,6 +40,12 @@ if ( ! class_exists( 'PT_VC_Featured_Page' ) ) {
 
 		// Overwrite the vc_map_shortcode function from the parent class
 		public function vc_map_shortcode() {
+
+			// Get the settings for the this widget
+			$this->fields = apply_filters( 'pw/featured_page_fields', array(
+				'read_more_text' => true,
+				'tag'            => false,
+			) );
 
 			// Get all pages to use in the dropdown below:
 			$args = array(
@@ -53,34 +63,44 @@ if ( ! class_exists( 'PT_VC_Featured_Page' ) ) {
 				$list_of_pages[ $page->post_title ] = $page->ID;
 			}
 
+			$params = array(
+				array(
+					'type'       => 'dropdown',
+					'heading'    => _x( 'Page', 'backend', 'vc-elements-pt' ),
+					'param_name' => 'page',
+					'value'      => $list_of_pages,
+				),
+				array(
+					'type'       => 'dropdown',
+					'heading'    => _x( 'Layout', 'backend', 'vc-elements-pt' ),
+					'param_name' => 'layout',
+					'value'      => array(
+						_x( 'With big picture', 'backend', 'vc-elements-pt' ) => 'block',
+						_x( 'With small picture, inline', 'backend', 'vc-elements-pt' ) => 'inline',
+					),
+				),
+				array(
+					'type'       => 'textfield',
+					'heading'    => _x( 'Read more text', 'backend', 'vc-elements-pt' ),
+					'param_name' => 'read_more_text',
+					'value' => _x( 'Read more', 'backend', 'vc-elements-pt' ),
+				),
+			);
+
+			if ( $this->fields['tag'] ) {
+				$params[] = array(
+					'type'       => 'textfield',
+					'heading'    => _x( 'Tag', 'backend', 'vc-elements-pt' ),
+					'param_name' => 'tag',
+				);
+			}
+
 			vc_map( array(
 				'name'     => _x( 'Featured Page', 'backend', 'vc-elements-pt' ),
 				'base'     => $this->shortcode_name(),
 				'category' => _x( 'Content', 'backend', 'vc-elements-pt' ),
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
-				'params'   => array(
-					array(
-						'type'       => 'dropdown',
-						'heading'    => _x( 'Page', 'backend', 'vc-elements-pt' ),
-						'param_name' => 'page',
-						'value'      => $list_of_pages,
-					),
-					array(
-						'type'       => 'dropdown',
-						'heading'    => _x( 'Layout', 'backend', 'vc-elements-pt' ),
-						'param_name' => 'layout',
-						'value'      => array(
-							_x( 'With big picture', 'backend', 'vc-elements-pt' ) => 'block',
-							_x( 'With small picture, inline', 'backend', 'vc-elements-pt' ) => 'inline',
-						),
-					),
-					array(
-						'type'       => 'textfield',
-						'heading'    => _x( 'Read more text', 'backend', 'vc-elements-pt' ),
-						'param_name' => 'read_more_text',
-						'value' => _x( 'Read more', 'backend', 'vc-elements-pt' ),
-					),
-				)
+				'params'   => $params,
 			) );
 		}
 	}
