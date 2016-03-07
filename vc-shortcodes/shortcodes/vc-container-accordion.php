@@ -25,6 +25,11 @@ if ( ! class_exists( 'PT_VC_Container_Accordion' ) ) {
 
 			$items = PT_VC_Helper_Functions::get_child_elements_data( $content );
 
+			// Set id for each item
+			foreach ($items as $key => $item) {
+				$items[ $key ]['id'] = $key;
+			}
+
 			$instance = array(
 				'title'          => $atts['title'],
 				'read_more_link' => $atts['read_more_url'],
