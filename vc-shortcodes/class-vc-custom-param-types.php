@@ -34,10 +34,10 @@ if ( ! class_exists( 'PT_VC_Custom_Param_Types' ) ) {
 			);
 
 			// Register custom param types
-			add_shortcode_param( 'upload_file', array( $this, 'upload_file' ) );
-			add_shortcode_param( 'select_fa_icon_bb', array( $this, 'select_fa_icon_bb' ) );
-			add_shortcode_param( 'input_number', array( $this, 'input_number' ) );
-			add_shortcode_param( 'lined_textarea', array( $this, 'lined_textarea' ) );
+			vc_add_shortcode_param( 'upload_file', array( $this, 'upload_file' ) );
+			vc_add_shortcode_param( 'select_fa_icon_bb', array( $this, 'select_fa_icon_bb' ) );
+			vc_add_shortcode_param( 'input_number', array( $this, 'input_number' ) );
+			vc_add_shortcode_param( 'lined_textarea', array( $this, 'lined_textarea' ) );
 		}
 
 		// Function for registering the upload_file custom param type
