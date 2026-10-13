@@ -27,30 +27,24 @@ if ( ! class_exists( 'PT_VC_Person_Profile' ) ) {
 				), $atts );
 
 			// Prepare social icons for the Person Profile widget
-			$lines        = preg_split( '/\r\n|\r|\n/', $atts['social_links'] );
+			$lines        = preg_split( '/\r\n|\r|\n/', is_string( $atts['social_links'] ) ? $atts['social_links'] : '' );
 			$social_icons = array();
 
-			if ( 1 === count( $lines ) ) {
-				$lines = explode( ',', $atts['social_links'] );
-			}
-
 			foreach ( $lines as $line ) {
-				$split_line = explode( '|', $line );
+				preg_match_all( '/(?:^|,)([^|]+)\|([^,|]*)(?=,|$)/', $line, $pairs, PREG_SET_ORDER );
 
-				if ( ! isset( $split_line[1] ) ) {
-					continue;
+				foreach ( $pairs as $pair ) {
+					$tmp_array = array(
+						'link' => trim( wp_strip_all_tags( $pair[1] ) ),
+						'icon' => trim( wp_strip_all_tags( $pair[2] ) ),
+					);
+
+					if ( '' === $tmp_array['link'] || '' === $tmp_array['icon'] ) {
+						continue;
+					}
+
+					$social_icons[] = $tmp_array;
 				}
-
-				$tmp_array  = array(
-					'link' => wp_strip_all_tags( $split_line[0] ),
-					'icon' => wp_strip_all_tags( $split_line[1] ),
-				);
-
-				if ( '' === $tmp_array['link'] ) {
-					continue;
-				}
-
-				$social_icons[] = $tmp_array;
 			}
 
 			$instance = array(
