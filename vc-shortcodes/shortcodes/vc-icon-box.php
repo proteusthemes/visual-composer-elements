@@ -29,13 +29,13 @@ if ( ! class_exists( 'PT_VC_Icon_Box' ) ) {
 				), $atts );
 
 			// Extract the icon class without the first 'fa' part
-			$icon = explode( ' ', $atts['icon'] );
+			$icon = PT_VC_Helper_Functions::get_icon_class( $atts['icon'] );
 
 			$instance = array(
 				'title'    => $atts['title'],
 				'text'     => $atts['text'],
 				'btn_link' => $atts['link'],
-				'icon'     => $icon[1],
+				'icon'     => $icon,
 				'new_tab'  => $atts['new_tab'],
 				'featured' => $atts['featured'],
 			);

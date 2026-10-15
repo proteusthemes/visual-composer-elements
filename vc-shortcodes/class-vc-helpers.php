@@ -13,20 +13,39 @@ if ( ! class_exists( 'PT_VC_Helper_Functions' ) ) {
 		 * @return array
 		 */
 		static function get_child_elements_data( $child_shortcode_content ) {
-
-			// Convert the shortcode to the actual content
 			$content = do_shortcode( shortcode_unautop( $child_shortcode_content ) );
+			$items   = array();
 
-			$json_array = explode( PHP_EOL, $content );
+			foreach ( preg_split( '/\r\n|\r|\n/', $content ) as $line ) {
+				$line = preg_replace( '#^(?:\s|</?p>|<br\s*/?>)+|(?:\s|</?p>|<br\s*/?>)+$#i', '', $line );
 
-			// Remove the first element of the json_array since it will be always empty
-			array_shift( $json_array );
+				if ( '' === $line ) {
+					continue;
+				}
 
-			// Create a valid JSON
-			$json = '[' . implode( ',' , $json_array ) . ']';
+				$item = json_decode( $line, true );
 
-			// return an associative array or the data
-			return json_decode( $json, true );
+				if ( is_array( $item ) ) {
+					$items[] = $item;
+				}
+			}
+
+			return $items;
+		}
+
+		/**
+		 * Get the icon class from an icon picker value without the first 'fa' part
+		 * @param string $value the icon picker value, for example 'fa fa-home'
+		 * @return string
+		 */
+		static function get_icon_class( $value ) {
+			$tokens = preg_split( '/\s+/', trim( (string) $value ), -1, PREG_SPLIT_NO_EMPTY );
+
+			if ( count( $tokens ) > 1 ) {
+				array_shift( $tokens );
+			}
+
+			return $tokens ? $tokens[0] : '';
 		}
 	}
 }

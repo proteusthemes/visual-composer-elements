@@ -19,8 +19,8 @@ if ( ! class_exists( 'PT_VC_Counter' ) ) {
 		// Overwrite the register_shortcode function from the parent class
 		public function register_shortcode( $atts, $content = null ) {
 			$atts = shortcode_atts( array(
-				'title'  => __( 'Test Title', 'vc-elements-pt' ),
-				'number' => '299',
+				'title'  => '',
+				'number' => '',
 				'icon'   => 'fa fa-home',
 				), $atts );
 

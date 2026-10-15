@@ -18,7 +18,7 @@ if ( ! class_exists( 'PT_VC_Call_To_Action' ) ) {
 		// Overwrite the register_shortcode function from the parent class
 		public function register_shortcode( $atts, $content = null ) {
 			$atts = shortcode_atts( array(
-				'title' => 'Not sure which solution fits you business needs?',
+				'title' => '',
 				), $atts );
 
 			$instance = array(

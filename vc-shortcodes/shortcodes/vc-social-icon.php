@@ -24,8 +24,7 @@ if ( ! class_exists( 'PT_VC_Social_Icon' ) ) {
 				), $atts );
 
 			// Extract the icon class without the first 'fa' part
-			$icon = explode( ' ', $atts['icon'] );
-			$atts['icon'] = $icon[1];
+			$atts['icon'] = PT_VC_Helper_Functions::get_icon_class( $atts['icon'] );
 
 			// The PHP_EOL is added so that it can be used as a separator between multiple counters
 			return PHP_EOL . json_encode( $atts );

@@ -34,7 +34,11 @@ if ( ! class_exists( 'PT_VC_Opening_Time' ) ) {
 
 			$days = array( 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' );
 
-			$lines = explode( PHP_EOL , $atts['days_hours'] );
+			$lines = preg_split( '/\r\n|\r|\n/', $atts['days_hours'] );
+
+			if ( 1 === count( $lines ) ) {
+				$lines = explode( ',', $atts['days_hours'] );
+			}
 
 			for ( $i = 0; $i < 7; $i++ ) {
 				$line                                = ! empty( $lines[ $i ] ) ? explode( '|' , $lines[ $i ] ) : '';

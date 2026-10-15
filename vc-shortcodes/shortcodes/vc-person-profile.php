@@ -27,16 +27,24 @@ if ( ! class_exists( 'PT_VC_Person_Profile' ) ) {
 				), $atts );
 
 			// Prepare social icons for the Person Profile widget
-			$lines        = explode( PHP_EOL , $atts['social_links'] );
+			$lines        = preg_split( '/\r\n|\r|\n/', is_string( $atts['social_links'] ) ? $atts['social_links'] : '' );
 			$social_icons = array();
 
 			foreach ( $lines as $line ) {
-				$split_line = explode( '|', $line );
-				$tmp_array  = array(
-					'link' => wp_strip_all_tags( $split_line[0] ),
-					'icon' => wp_strip_all_tags( $split_line[1] ),
-				);
-				$social_icons[] = $tmp_array;
+				preg_match_all( '/(?:^|,)([^|]+)\|([^,|]*)(?=,|$)/', $line, $pairs, PREG_SET_ORDER );
+
+				foreach ( $pairs as $pair ) {
+					$tmp_array = array(
+						'link' => trim( wp_strip_all_tags( $pair[1] ) ),
+						'icon' => trim( wp_strip_all_tags( $pair[2] ) ),
+					);
+
+					if ( '' === $tmp_array['link'] || '' === $tmp_array['icon'] ) {
+						continue;
+					}
+
+					$social_icons[] = $tmp_array;
+				}
 			}
 
 			$instance = array(
@@ -62,17 +70,19 @@ if ( ! class_exists( 'PT_VC_Person_Profile' ) ) {
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'params'   => array(
 					array(
-						'type'       => 'textfield',
-						'holder'     => 'div',
-						'heading'    => _x( 'Name', 'backend', 'vc-elements-pt' ),
-						'param_name' => 'name',
-						'value'      => esc_html__( 'Jeff Lopez', 'vc-elements-pt' ),
+						'type'        => 'textfield',
+						'holder'      => 'div',
+						'heading'     => _x( 'Name', 'backend', 'vc-elements-pt' ),
+						'param_name'  => 'name',
+						'value'       => esc_html__( 'Jeff Lopez', 'vc-elements-pt' ),
+						'save_always' => true,
 					),
 					array(
-						'type'       => 'textfield',
-						'heading'    => _x( 'Title', 'backend', 'vc-elements-pt' ),
-						'param_name' => 'title',
-						'value'      => esc_html__( 'CEO and Founder', 'vc-elements-pt' ),
+						'type'        => 'textfield',
+						'heading'     => _x( 'Title', 'backend', 'vc-elements-pt' ),
+						'param_name'  => 'title',
+						'value'       => esc_html__( 'CEO and Founder', 'vc-elements-pt' ),
+						'save_always' => true,
 					),
 					array(
 						'type'       => 'textfield',
@@ -81,10 +91,11 @@ if ( ! class_exists( 'PT_VC_Person_Profile' ) ) {
 						'value'      => 'http://xml-io.proteusthemes.com/legalpress/wp-content/uploads/sites/26/2015/06/110.jpg',
 					),
 					array(
-						'type'       => 'textarea',
-						'heading'    => _x( 'Introduction', 'backend', 'vc-elements-pt' ),
-						'param_name' => 'introduction',
-						'value'      => esc_html__( 'This is my bio...', 'vc-elements-pt' ),
+						'type'        => 'textarea',
+						'heading'     => _x( 'Introduction', 'backend', 'vc-elements-pt' ),
+						'param_name'  => 'introduction',
+						'value'       => esc_html__( 'This is my bio...', 'vc-elements-pt' ),
+						'save_always' => true,
 					),
 					array(
 						'type'       => 'checkbox',
@@ -98,6 +109,7 @@ if ( ! class_exists( 'PT_VC_Person_Profile' ) ) {
 						'param_name'  => 'social_links',
 						'rows'        => '5',
 						'value'       => 'https://www.facebook.com/ProteusThemes|fa-facebook-square,https://www.linkedin.com|fa-linkedin-square,https://twitter.com/proteusthemes|fa-twitter-square,https://www.youtube.com/user/ProteusNetCompany/|fa-youtube-square',
+						'save_always' => true,
 					),
 				)
 			) );

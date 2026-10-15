@@ -26,8 +26,15 @@ if ( ! class_exists( 'PT_VC_Featured_Page' ) ) {
 				'tag'            => '',
 				), $atts );
 
+			$page_id = absint( $atts['page'] );
+
+			if ( 0 === $page_id ) {
+				$list_of_pages = $this->get_list_of_pages();
+				$page_id       = absint( reset( $list_of_pages ) );
+			}
+
 			$instance = array(
-				'page_id'        => absint( $atts['page'] ),
+				'page_id'        => $page_id,
 				'layout'         => $atts['layout'],
 				'read_more_text' => $atts['read_more_text'],
 				'tag'            => $atts['tag'],
@@ -47,28 +54,13 @@ if ( ! class_exists( 'PT_VC_Featured_Page' ) ) {
 				'tag'            => false,
 			) );
 
-			// Get all pages to use in the dropdown below:
-			$args = array(
-				'sort_order'  => 'ASC',
-				'sort_column' => 'post_title',
-				'post_type'   => 'page',
-				'post_status' => 'publish',
-			);
-			$pages = get_pages( $args );
-
-			$list_of_pages = array();
-
-			// Parse through the objects returned and add the key value pairs to the list_of_pages array
-			foreach ( $pages as $page ) {
-				$list_of_pages[ $page->post_title ] = $page->ID;
-			}
-
 			$params = array(
 				array(
-					'type'       => 'dropdown',
-					'heading'    => _x( 'Page', 'backend', 'vc-elements-pt' ),
-					'param_name' => 'page',
-					'value'      => $list_of_pages,
+					'type'        => 'dropdown',
+					'heading'     => _x( 'Page', 'backend', 'vc-elements-pt' ),
+					'param_name'  => 'page',
+					'value'       => $this->get_list_of_pages(),
+					'save_always' => true,
 				),
 				array(
 					'type'       => 'dropdown',
@@ -102,6 +94,31 @@ if ( ! class_exists( 'PT_VC_Featured_Page' ) ) {
 				'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
 				'params'   => $params,
 			) );
+		}
+
+		// Published pages for the page dropdown, keyed by a unique label
+		private function get_list_of_pages() {
+			$args = array(
+				'sort_order'  => 'ASC',
+				'sort_column' => 'post_title',
+				'post_type'   => 'page',
+				'post_status' => 'publish',
+			);
+			$pages = get_pages( $args );
+
+			$list_of_pages = array();
+
+			foreach ( $pages as $page ) {
+				$label = $page->post_title;
+
+				if ( isset( $list_of_pages[ $label ] ) ) {
+					$label = sprintf( '%s (#%d)', $label, $page->ID );
+				}
+
+				$list_of_pages[ $label ] = $page->ID;
+			}
+
+			return $list_of_pages;
 		}
 	}
 

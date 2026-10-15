@@ -21,13 +21,12 @@ if ( ! class_exists( 'PT_VC_Step' ) ) {
 			$atts = shortcode_atts( array(
 				'title'        => '',
 				'item_content' => '',
-				'icon'         => '',
+				'icon'         => 'fa fa-mobile',
 				'step'         => '',
 				), $atts );
 
 			// Extract the icon class without the first 'fa' part
-			$icon            = explode( ' ', $atts['icon'] );
-			$atts['icon']    = $icon[1];
+			$atts['icon'] = PT_VC_Helper_Functions::get_icon_class( $atts['icon'] );
 
 			$atts['content'] = $atts['item_content'];
 
